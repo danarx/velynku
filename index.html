@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I LOVE YOU VELYN</title>
+
+    <!-- from mas for dedee
+         made with love bt Affan -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #2b0a1d 0%, #12030c 50%, #000 100%);
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      position: relative;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 50%;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.8); }
+    }
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      animation: fadeIn 2s ease;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    @keyframes fadeInCentered {
+     from {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% + 30px));
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .title {
+      font-size: 4rem;
+      font-weight: bold;
+      letter-spacing: 6px;
+      color: #ffd6ea;
+      text-shadow:
+        0 0 10px #ff5ca8,
+        0 0 20px #ff5ca8,
+        0 0 40px #ff2f92;
+      animation: pulse 2.5s infinite ease-in-out;
+      margin-bottom: 20px;
+    }
+
+    @keyframes pulse {
+      0%,100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #ffd9e8;
+      margin-top: 15px;
+      letter-spacing: 2px;
+      opacity: 0.9;
+      text-align: center;
+    }
+
+    .garden {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      height: 300px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 45px;
+    }
+
+    .tulip {
+      position: relative;
+      width: 80px;
+      height: 240px;
+      animation: sway 4s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    .tulip:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .tulip:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    @keyframes sway {
+      0%,100% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+    }
+
+    .stem {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 8px;
+      height: 170px;
+      background: linear-gradient(to bottom, #48c774, #1b5e20);
+      transform: translateX(-50%);
+      border-radius: 10px;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 60px;
+      height: 28px;
+      background: linear-gradient(to right, #56e27c, #1b5e20);
+      border-radius: 100% 0;
+    }
+
+    .leaf.left {
+      bottom: 70px;
+      left: -35px;
+      transform: rotate(-35deg);
+    }
+
+    .leaf.right {
+      bottom: 100px;
+      right: -35px;
+      transform: rotate(35deg) scaleX(-1);
+    }
+
+    .flower {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 90px;
+    }
+
+    .petal {
+      position: absolute;
+      width: 42px;
+      height: 60px;
+      background: linear-gradient(to bottom, #ff8fc2, #ff2f92);
+      border-radius: 50% 50% 40% 40%;
+      box-shadow: 0 0 15px rgba(255, 92, 168, 0.8);
+    }
+
+    .petal.center {
+      left: 24px;
+      top: 0;
+      z-index: 3;
+    }
+
+    .petal.left {
+      left: 6px;
+      top: 12px;
+      transform: rotate(-20deg);
+    }
+
+    .petal.right {
+      right: 6px;
+      top: 12px;
+      transform: rotate(20deg);
+    }
+
+    .glow {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(255,105,180,0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(10px);
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: glowPulse 3s infinite ease-in-out;
+    }
+
+    @keyframes glowPulse {
+      0%,100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff8fc2;
+      font-size: 18px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-700px) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2.2rem;
+        letter-spacing: 3px;
+        text-align: center;
+        line-height: 1.3;
+      }
+
+      .garden {
+        gap: 5px;
+        transform: scale(0.78);
+        margin-top: 0;
+      }
+
+      .subtitle {
+        font-size: 0.85rem;
+        margin-top: -5px;
+      }
+
+      .container {
+        padding-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bgMusic" loop>
+    <source src="https://raw.githubusercontent.com/danarx/music/main/boy-pablo-honey.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="intro-screen" id="introScreen">
+    <div class="intro-card">
+      <h1>Mas punya sesuatu buat deedee 💖</h1>
+      <button id="openGift">Buka Kadonya 🎁</button>
+    </div>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <div class="stars"></div>
+
+    <div class="container">
+      <div class="glow"></div>
+
+      <div class="title">I LOVE YOU VELYN🤍</div>
+
+      <div class="garden">
+        <div class="tulip">
+          <div class="flower">
+            <div class="petal left"></div>
+            <div class="petal right"></div>
+            <div class="petal center"></div>
+          </div>
+          <div class="stem"></div>
+          <div class="leaf left"></div>
+          <div class="leaf right"></div>
+        </div>
+
+        <div class="tulip">
+          <div class="flower">
+            <div class="petal left"></div>
+            <div class="petal right"></div>
+            <div class="petal center"></div>
+          </div>
+          <div class="stem"></div>
+          <div class="leaf left"></div>
+          <div class="leaf right"></div>
+        </div>
+
+        <div class="tulip">
+          <div class="flower">
+            <div class="petal left"></div>
+            <div class="petal right"></div>
+            <div class="petal center"></div>
+          </div>
+          <div class="stem"></div>
+          <div class="leaf left"></div>
+          <div class="leaf right"></div>
+        </div>
+      </div>
+
+      <div class="subtitle">made with love by Affan ✨</div>
+    </div>
+  </div>
+
+  <style>
+    .intro-screen {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, #3b1025 0%, #12030c 60%, #000 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .intro-card {
+      text-align: center;
+      padding: 40px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(255,105,180,0.25);
+      animation: floatCard 3s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .intro-card h1 {
+      font-size: 2.5rem;
+      color: #ffd6ea;
+      margin-bottom: 30px;
+      text-shadow: 0 0 15px #ff5ca8;
+    }
+
+    .intro-card button {
+      padding: 15px 35px;
+      border: none;
+      border-radius: 999px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff5ca8, #ff8fc2);
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(255,92,168,0.5);
+    }
+
+    .intro-card button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 35px rgba(255,92,168,0.8);
+    }
+
+    .main-content {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .intro-card h1 {
+        font-size: 1.8rem;
+      }
+
+      .intro-card {
+        margin: 20px;
+      }
+    }
+  </style>
+
+  <script>
+    const starsContainer = document.querySelector('.stars');
+
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.animationDelay = Math.random() * 3 + 's';
+      star.style.animationDuration = 2 + Math.random() * 4 + 's';
+      starsContainer.appendChild(star);
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.bottom = '-20px';
+      heart.style.fontSize = 12 + Math.random() * 20 + 'px';
+      heart.style.animationDuration = 4 + Math.random() * 4 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    setInterval(createHeart, 400);
+
+    const introScreen = document.getElementById('introScreen');
+    const mainContent = document.getElementById('mainContent');
+    const openGift = document.getElementById('openGift');
+    const bgMusic = document.getElementById('bgMusic');
+
+    openGift.addEventListener('click', () => {
+      introScreen.style.opacity = '0';
+      introScreen.style.transition = '1s';
+
+      setTimeout(() => {
+        introScreen.style.display = 'none';
+        mainContent.style.display = 'block';
+      }, 1000);
+
+      bgMusic.play().catch(() => {
+        console.log('Autoplay diblok browser sampai user interaksi.');
+      });
+    });
+  </script>
+</body>
+</html>
